@@ -68,6 +68,102 @@ nav {
     transform: translateY(-2px);
 }
 
+/* ========== Hamburger Menu (Mobile) ========== */
+.nav-toggle { 
+    display: none; 
+  }
+  
+  .hamburger {
+    display: none;           /* ซ่อนไว้บนจอใหญ่ */
+    width: 34px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 8px;
+    transition: background .2s ease;
+  }
+  
+  .hamburger:hover { 
+    background: rgba(0,0,0,.05);
+  }
+  
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #2c3e50;
+    transition: transform .3s ease, opacity .2s ease;
+    border-radius: 2px;
+  }
+  
+  /* ทำให้ nav-container เป็นจุดอ้างอิงตำแหน่ง dropdown */
+  .nav-container { 
+    position: relative;
+  }
+  
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    .hamburger { 
+      display: flex; 
+    }
+  
+    /* ซ่อนเมนูไว้ก่อน แล้วค่อยสไลด์ลงเมื่อกด */
+    .nav-links {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      right: 0;
+      background: #fff;
+      flex-direction: column;
+      gap: 0;
+      padding: 8px 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(102,126,234,.15);
+      box-shadow: 0 14px 30px rgba(0,0,0,.08);
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: max-height .3s ease, opacity .25s ease;
+      margin: 0;           /* กันระยะกระเด้ง */
+    }
+  
+    .nav-links li { 
+      border-top: 1px solid #eee; 
+    }
+    .nav-links li:first-child { 
+      border-top: none; 
+    }
+  
+    .nav-links a {
+      display: block;
+      padding: 12px 10px;
+      border-radius: 10px;
+    }
+  
+    /* เปิดเมนูเมื่อ checkbox ถูกเช็ค */
+    .nav-toggle:checked ~ .nav-links {
+      max-height: 380px;   /* พอให้ไหลได้ทุกลิงก์ */
+      opacity: 1;
+      pointer-events: auto;
+    }
+  
+    /* แอนิเมชันแปลงเป็นกากบาท */
+    .nav-toggle:checked + .hamburger span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .nav-toggle:checked + .hamburger span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle:checked + .hamburger span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }  
+
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -552,7 +648,7 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-container {
-        flex-direction: column;
+        flex-direction: row;
         gap: 1rem;
         padding: 1rem;
     }
