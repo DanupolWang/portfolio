@@ -6,714 +6,7 @@
   <title>Portfolio - Danupol Wang</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        line-height: 1.6;
-        color: #2c3e50;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        min-height: 100vh;
-    }
-
-    /* Navigation */
-    nav {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        padding: 1rem 0;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 2rem;
-    }
-
-    .logo {
-        font-size: 1.8rem;
-        font-weight: 700;
-        background: linear-gradient(45deg, #667eea, #764ba2);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-
-    .nav-links {
-        display: flex;
-        list-style: none;
-        gap: 2rem;
-    }
-
-    .nav-links a {
-        text-decoration: none;
-        color: #2c3e50;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        position: relative;
-        padding: 0.5rem 1rem;
-        border-radius: 25px;
-    }
-
-    .nav-links a:hover {
-        background: linear-gradient(45deg, #667eea, #764ba2);
-        color: white;
-        transform: translateY(-2px);
-    }
-
-    /* Hero Section */
-    .hero {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        padding: 5rem 0;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff08" points="0,0 1000,300 1000,1000 0,700"/></svg>');
-        background-size: cover;
-    }
-
-    .hero-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        position: relative;
-        z-index: 1;
-    }
-
-    .hero h1 {
-        font-size: 3.5rem;
-        margin-bottom: 1rem;
-        font-weight: 700;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    .hero p {
-        font-size: 1.3rem;
-        margin-bottom: 2rem;
-        opacity: 0.9;
-    }
-
-    .cta-button {
-        display: inline-block;
-        background: rgba(255, 255, 255, 0.2);
-        color: white;
-        padding: 1rem 2rem;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
-    }
-
-    .cta-button:hover {
-        background: rgba(255, 255, 255, 0.3);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Container */
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-    }
-
-    /* Sections */
-    section {
-        padding: 5rem 0;
-        background: rgba(255, 255, 255, 0.95);
-        margin: 2rem 0;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(10px);
-    }
-
-    section:first-of-type {
-        margin-top: 0;
-    }
-
-    h2 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 3rem;
-        text-align: center;
-        background: linear-gradient(45deg, #667eea, #764ba2);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        position: relative;
-    }
-
-    h2::after {
-        content: '';
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 4px;
-        background: linear-gradient(45deg, #667eea, #764ba2);
-        border-radius: 2px;
-    }
-
-    /* About Section */
-    .about-container {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 3rem;
-        align-items: center;
-        padding: 0 3rem;
-    }
-
-    .profile-image {
-        position: relative;
-        text-align: center;
-        margin: 0 auto;
-        width: 100%;
-        max-width: 300px;
-    }
-
-    .profile-image img {
-        width: 100%;
-        height: auto;
-        max-width: 250px;
-        border-radius: 0;
-        object-fit: cover;
-        border: 6px solid white;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s ease;
-    }
-
-    .profile-image img:hover {
-        transform: scale(1.05);
-    }
-
-    .about-text {
-        font-size: 1.1rem;
-        line-height: 1.8;
-        color: #555;
-        padding: 0 1.5rem;
-    }
-
-    .about-text p {
-        margin-bottom: 1.5rem;
-    }
-
-    /* Skills Section */
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-        align-items: stretch;
-        justify-items: center;
-        padding: 0 3rem;
-    }
-
-    .skill-card {
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        color: white;
-        padding: 2rem;
-        border-radius: 15px;
-        text-align: center;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        min-height: 250px;
-        box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
-        width: 100%;
-        /* max-width: 280px; */
-        margin: 0 auto;
-    }
-
-    @media (min-width: 1025px) {
-        .skills-grid {
-            grid-template-columns: repeat(4, 1fr);
-        }
-    }
-
-    .skill-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-        transform: translateX(-100%);
-        transition: transform 0.6s ease;
-    }
-
-    .skill-card:hover::before {
-        transform: translateX(100%);
-    }
-
-    .skill-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 30px rgba(79, 70, 229, 0.4);
-    }
-
-    .skill-icon {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-    }
-
-    .skill-card h3 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .skill-card p {
-        opacity: 0.9;
-        font-size: 0.95rem;
-    }
-
-    /* Certificates Section */
-    .certificates-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2.5rem;
-    margin-top: 2rem;
-    padding: 0 3rem;
-    justify-items: center;
-    }
-
-    .cert-card {
-    background: white;
-    border-radius: 15px;
-    padding: 2.5rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(102, 126, 234, 0.1);
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    }
-
-    .cert-card {
-    background: white;
-    border-radius: 15px;
-    padding: 2.5rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(102, 126, 234, 0.1);
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    }
-
-    .cert-content {
-    position: relative;
-    z-index: 1;
-    }
-
-    .cert-icon {
-    font-size: 2.5rem;
-    color: #667eea;
-    margin-bottom: 1.5rem;
-    display: inline-block;
-    background: rgba(102, 126, 234, 0.1);
-    width: 70px;
-    height: 70px;
-    line-height: 70px;
-    border-radius: 50%;
-    text-align: center;
-    }
-
-    .cert-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    color: #2c3e50;
-    padding: 0.5rem 0;
-    }
-
-    .cert-card p {
-    color: #666;
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    padding: 0.3rem 0;
-    }
-    
-    .cert-status {
-    display: inline-block;
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    color: white;
-    padding: 0.5rem 1.2rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-top: 0.5rem;
-    cursor: pointer;
-    border: none;
-    transition: all 0.3s ease;
-    }
-
-    .cert-status:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-
-    /* Mobal Certificates Section */
-    .certificate-label {
-    font-weight: 600;
-    color: #667eea; /* หรือใช้ gradient ผ่าน background-clip ถ้าต้องการ */
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    }
-
-    .certificate-label i {
-    color: #764ba2; /* ไอคอนสไตล์ธีม */
-    font-size: 1.2rem;
-    }
-
-    .certificate-image {
-    max-width: 100%;
-    max-height: 500px;
-    width: auto;
-    height: auto;
-    display: block;
-    margin: 1rem auto;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    object-fit: contain;
-    }
-
-    .btn-secondary {
-    background: #667eea;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 0.6rem 1.5rem;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
-    }
-
-    .btn-secondary:hover {
-    background: #764ba2;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
-    }
-
-    /* Contact Section */
-    .contact-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 3rem;
-    }
-
-    .contact-info {
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        color: white;
-        padding: 2.5rem;
-        border-radius: 20px;
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-        max-width: 450px;
-        margin: 0 auto;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    .contact-info::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle fill="%23ffffff08" cx="200" cy="200" r="100"/><circle fill="%23ffffff05" cx="800" cy="800" r="150"/></svg>');
-        background-size: cover;
-        z-index: 0;
-    }
-
-    .contact-info > * {
-        position: relative;
-        z-index: 1;
-    }
-
-    .contact-info h3 {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-    }
-
-    .contact-item {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1.8rem;
-        padding: 1.2rem;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        transition: all 0.3s ease;
-    }
-
-    .contact-item:hover {
-        background: rgba(255, 255, 255, 0.2);
-        transform: translateX(5px);
-    }
-
-    .contact-item i {
-        font-size: 1.5rem;
-        margin-right: 1.2rem;
-        width: 30px;
-        text-align: center;
-    }
-
-    .contact-item div {
-        flex: 1;
-    }
-
-    .contact-item strong {
-        display: block;
-        margin-bottom: 0.3rem;
-    } 
-    
-
-    /* Footer */
-    footer {
-        background: #2c3e50;
-        color: white;
-        text-align: center;
-        padding: 3rem 0;
-        margin-top: 3rem;
-    }
-
-    .footer-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-    }
-
-    .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 1.5rem;
-        margin-bottom: 2rem;
-    }
-
-    .social-links a {
-        display: inline-flex;
-        width: 50px;
-        height: 50px;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(45deg, #667eea, #764ba2);
-        color: white;
-        border-radius: 50%;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        font-size: 1.2rem;
-    }
-
-    .social-links a:hover {
-        transform: translateY(-5px) scale(1.1);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .footer-content p {
-        opacity: 0.8;
-        font-size: 0.95rem;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .nav-container {
-            flex-direction: column;
-            gap: 1rem;
-            padding: 1rem;
-        }
-
-        .nav-links {
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-        }
-
-        .about-container {
-            grid-template-columns: 1fr;
-            text-align: center;
-            gap: 2rem;
-            padding: 0 1.5rem;
-        }
-
-        .profile-image {
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-container {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            padding: 0 1.5rem;
-        }
-
-        .skills-grid {
-            grid-template-columns: 1fr;
-            gap: 1.8rem;
-            padding: 0 1.5rem;
-        }
-
-        .skill-card {
-            min-height: 220px;
-            max-width: 100%;
-        }
-
-        .certificates-grid {
-            grid-template-columns: 1fr;
-            padding: 0 1.5rem;
-        }
-
-        .cert-card {
-            max-width: 100%;
-            padding: 2rem;
-        }
-
-        .contact-info {
-            max-width: 100%;
-            padding: 2rem;
-        }
-
-        section {
-            padding: 3rem 0;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .fade-in-up {
-        animation: fadeInUp 0.8s ease-out forwards;
-    }
-
-    /* Modal Z-index fixes */
-    .modal-backdrop {
-        z-index: 1040 !important;
-    }
-      
-    .modal {
-        z-index: 1050 !important;
-    }
-
-    .modal-dialog {
-        z-index: 1060 !important;
-    }
-
-    /* Ensure navbar doesn't interfere with modal */
-    nav {
-        z-index: 1030;
-    }
-
-    /* Additional modal styling */
-    .modal-content {
-        border-radius: 15px;
-        border: none;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-    }
-
-    .modal-header {
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        color: white;
-        border-radius: 15px 15px 0 0;
-        border-bottom: none;
-    }
-
-    .modal-title {
-        font-weight: 600;
-        margin: 0;
-    }
-
-    .btn-close {
-        filter: invert(1);
-    }
-
-    .modal-body {
-        padding: 2rem;
-    }
-
-    .modal-body ul {
-        list-style: none;
-        padding: 0;
-    }
-
-    .modal-body li {
-        padding: 0.8rem 0;
-        border-bottom: 1px solid #eee;
-        color: #555;
-    }
-
-    .modal-body li:last-child {
-        border-bottom: none;
-    }
-
-    .modal-footer {
-        border-top: none;
-        padding: 1rem 2rem 2rem;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css"> 
 </head>
 
 <body>
@@ -763,8 +56,7 @@
           <h3>Code</h3>
           <p>Python</p>
           <p>Java</p>
-          <p>C++</p>
-          <p>Swift ios</p>
+          <p>Swift</p>
         </div>
         <div class="skill-card fade-in-up" style="animation-delay: 0.3s;">
           <div class="skill-icon">
@@ -806,18 +98,20 @@
           <div class="cert-icon">
             <i class="fas fa-code"></i>
           </div>
-          <h3>Academic Projects</h3>
-          <p>The Prediction of Energy Consumption in Thailand</p>
-          <span class="cert-status">In Progress</span>
+          <h3>My Projects</h3>
+          <p>Projects that have been done and others</p>
+          <button class="cert-status" data-bs-toggle="modal" data-bs-target="#MyProjectsModal">
+            Click To Show My Projects
+          </button>
         </div>
         <div class="cert-card fade-in-up" style="animation-delay: 0.4s;">
           <div class="cert-icon">
             <i class="fas fa-certificate"></i>
           </div>
           <h3>Online Certificates</h3>
-          <p>Additional courses in programming and data analysis</p>
+          <p>Completed international online certificates from Coursera</p>
           <button class="cert-status" data-bs-toggle="modal" data-bs-target="#certificateModal">
-            Show Certificates
+            Click To Show Certificates
           </button>
         </div>
       </div>
@@ -843,10 +137,10 @@
             </div>
           </div>
           <div class="contact-item">
-            <i class="fas fa-map-marker-alt"></i>
+            <i class="fab fa-line"></i>
             <div>
-              <strong>Address</strong>
-              <span>Bangkok, Thailand</span>
+              <strong>Lind ID</strong>
+              <span>poldanupol.</span>
             </div>
           </div>
         </div>
@@ -854,7 +148,34 @@
     </section>
   </div>
 
-  <!-- Modal -->
+  <!-- Modal My Projects-->
+  <div class="modal fade" id="MyProjectsModal" tabindex="-1" aria-labelledby="MyProjectsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="MyProjectsModalLabel">My Projects</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li><i class="fas fa-code"></i> My Project 1: MONEY WISE </li>
+            <img src="MyProjectMobile.png" alt="MyProjects" class="Mobal-image"/>
+            <p>Expense & Income Management with Data Visualization Created a tool to record daily financial transactions and graphs for better budgeting and financial planning in Android Studio.</p>
+            <p><a href="https://github.com/DanupolWang/Android" target="_blank"> 🔗 Click to see</a></p>
+
+            <li><i class="fas fa-code"></i> My Project 2: Warehouse and Employee Management System</li>
+            <img src="MyProjectApache.png" alt="MyProjects" class="Mobal-image"/>
+            <p>Developed a system to manage warehouse inventory and employee records, including stock tracking, task assignments, and performance monitoring to improve operational efficiency.</p>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Certificate-->
   <div class="modal fade" id="certificateModal" tabindex="-1" aria-labelledby="certificateModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
@@ -865,9 +186,9 @@
         <div class="modal-body">
           <ul>
             <li><i class="fas fa-certificate"></i> Certificate 1:Customer Service with Python: Build a Chatbot using ChatGPT </li>
-            <img src="Coursera 6QF6CKFQX10V_page-0001.jpg" alt="Certificate" class="certificate-image"/>
+            <img src="Coursera 6QF6CKFQX10V_page-0001.jpg" alt="Certificate" class="Mobal-image"/>
             <li><i class="fas fa-certificate"></i> Certificate 2:Generative AI for Data Visualization and Data Storytelling </li>
-            <img src="Coursera HJRUJWCCKUNN (1)_page-0001.jpg" alt="Certificate" class="certificate-image"/>
+            <img src="Coursera HJRUJWCCKUNN (1)_page-0001.jpg" alt="Certificate" class="Mobal-image"/>
           </ul>
         </div>
         <div class="modal-footer">
@@ -882,7 +203,7 @@
       <div class="social-links">
         <a href="https://www.facebook.com/pol.kup.2025" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="https://line.me/ti/p/DKUE72rtYt" target="_blank"><i class="fab fa-line"></i></a>
-        <a href="https://github.com/DanupolWang?tab=repositories" target=_blank"><i class="fab fa-github"></i></a>
+        <a href="https://github.com/DanupolWang?tab=repositories" target=_blank"><i class="fab fa-github"></i></p>
       </div>
       <p>&copy; 2025 Danupol Wang. All rights reserved.</p>
     </div>
